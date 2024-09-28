@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import TopNav from "@/components/navbar/TopNav";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,11 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>
-          <TopNav/>
-          <main className="container mx-auto p-10">{children}</main>
-          
-        </Providers>
+        <SessionProvider>
+          <Providers>
+            <TopNav/>
+            <main className="container mx-auto">{children}</main>
+          </Providers>
+        </SessionProvider>
       </body>
     </html>
   );
