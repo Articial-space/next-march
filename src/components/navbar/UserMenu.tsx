@@ -23,7 +23,7 @@ export default function UserMenu({user}: Props) {
           color='primary'
           name={user?.name || 'user Avatar'}
           size='sm'
-          src={user?.image || '/images/user.png'}
+          src={user?.picture || '/images/user.png'}
         />
       </DropdownTrigger>
       <DropdownMenu variant='flat' aria-label='user action menu'>
